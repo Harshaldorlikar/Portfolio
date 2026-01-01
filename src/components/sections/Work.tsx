@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { X, ExternalLink, Play, Calendar } from "lucide-react";
@@ -96,11 +97,14 @@ export function Work() {
     useEffect(() => {
         if (selectedProject) {
             document.body.style.overflow = "hidden";
+            document.documentElement.style.overflow = "hidden";
         } else {
             document.body.style.overflow = "unset";
+            document.documentElement.style.overflow = "unset";
         }
         return () => {
             document.body.style.overflow = "unset";
+            document.documentElement.style.overflow = "unset";
         };
     }, [selectedProject]);
 
@@ -158,114 +162,131 @@ export function Work() {
             {/* Project Modal */}
             <AnimatePresence>
                 {selectedProject && (
-                    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8">
-                        {/* Backdrop */}
-                        <motion.div
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: 1 }}
-                            exit={{ opacity: 0 }}
-                            onClick={() => setSelectedProject(null)}
-                            className="absolute inset-0 bg-black/80 backdrop-blur-sm"
-                        />
-
-                        {/* Modal Content */}
-                        <motion.div
-                            layoutId={selectedProject.id}
-                            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                            animate={{ opacity: 1, scale: 1, y: 0 }}
-                            exit={{ opacity: 0, scale: 0.95, y: 10 }}
-                            className="bg-[#0a0a0a] border border-white/10 w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl relative z-10 flex flex-col"
-                            // Stop click propagation so clicking inside doesn't close it
-                            onClick={(e) => e.stopPropagation()}
-                        >
-                            {/* Close Button */}
-                            <button
+                    <Portal>
+                        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8">
+                            {/* Backdrop */}
+                            <motion.div
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
                                 onClick={() => setSelectedProject(null)}
-                                className="absolute top-4 right-4 p-2 bg-white/5 hover:bg-white/10 rounded-full transition-colors z-20 cursor-pointer"
+                                className="absolute inset-0 bg-black/80 backdrop-blur-sm"
+                            />
+
+                            {/* Modal Content */}
+                            <motion.div
+                                layoutId={selectedProject.id}
+                                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                                animate={{ opacity: 1, scale: 1, y: 0 }}
+                                exit={{ opacity: 0, scale: 0.95, y: 10 }}
+                                className="bg-[#0a0a0a] border border-white/10 w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl relative z-10 flex flex-col"
+                                // Stop click propagation so clicking inside doesn't close it
+                                onClick={(e) => e.stopPropagation()}
                             >
-                                <X className="w-5 h-5 text-white/70" />
-                            </button>
-
-                            {/* Header */}
-                            <div className="p-8 md:p-12 border-b border-white/5 bg-white/[0.02]">
-                                <div className="flex flex-col gap-4">
-                                    <div className="flex items-center gap-3 text-gold font-mono text-xs tracking-widest uppercase">
-                                        <Calendar className="w-3 h-3" />
-                                        {selectedProject.timeline}
-                                    </div>
-                                    <h2 className="text-3xl md:text-5xl font-serif text-white">{selectedProject.title}</h2>
-                                    <p className="text-xl text-muted-foreground">{selectedProject.subtitle}</p>
-
-                                    <div className="flex flex-wrap gap-3 mt-4">
-                                        {selectedProject.link && (
-                                            <a
-                                                href={selectedProject.link}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="inline-flex items-center gap-2 px-5 py-2.5 bg-gold text-gold-foreground font-bold text-sm tracking-wide uppercase rounded-sm hover:bg-gold/90 transition-colors"
-                                            >
-                                                Visit Project <ExternalLink className="w-4 h-4" />
-                                            </a>
-                                        )}
-                                        {selectedProject.video && (
-                                            <a
-                                                href={selectedProject.video}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 text-white font-bold text-sm tracking-wide uppercase rounded-sm hover:bg-white/20 transition-colors border border-white/10"
-                                            >
-                                                Watch Demo <Play className="w-4 h-4 ml-1 fill-current" />
-                                            </a>
-                                        )}
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Body */}
-                            <div className="p-8 md:p-12 space-y-12">
-                                {/* Overview */}
-                                <div className="grid md:grid-cols-[160px_1fr] gap-8">
-                                    <h3 className="text-sm font-mono uppercase tracking-widest text-muted-foreground mt-1">Overview</h3>
-                                    <p className="text-lg text-white/90 leading-relaxed max-w-2xl">
-                                        {selectedProject.details.problem}
-                                    </p>
+                                {/* Close Button - Sticky for Mobile */}
+                                <div className="sticky top-0 right-0 z-50 flex justify-end p-4 bg-gradient-to-b from-[#0a0a0a] to-transparent pointer-events-none">
+                                    <button
+                                        onClick={() => setSelectedProject(null)}
+                                        className="p-2 bg-black/50 hover:bg-white/10 border border-white/10 rounded-full transition-colors cursor-pointer pointer-events-auto backdrop-blur-sm"
+                                    >
+                                        <X className="w-5 h-5 text-white/70" />
+                                    </button>
                                 </div>
 
-                                {/* Solution (What I Built) */}
-                                <div className="grid md:grid-cols-[160px_1fr] gap-8 border-t border-white/5 pt-12">
-                                    <h3 className="text-sm font-mono uppercase tracking-widest text-muted-foreground mt-1">What I Built</h3>
-                                    <div className="space-y-4 max-w-2xl">
-                                        <p className="text-lg text-white/90 leading-relaxed">
-                                            {selectedProject.details.solution}
+                                {/* Header */}
+                                <div className="p-8 md:p-12 border-b border-white/5 bg-white/[0.02]">
+                                    <div className="flex flex-col gap-4">
+                                        <div className="flex items-center gap-3 text-gold font-mono text-xs tracking-widest uppercase">
+                                            <Calendar className="w-3 h-3" />
+                                            {selectedProject.timeline}
+                                        </div>
+                                        <h2 className="text-3xl md:text-5xl font-serif text-white">{selectedProject.title}</h2>
+                                        <p className="text-xl text-muted-foreground">{selectedProject.subtitle}</p>
+
+                                        <div className="flex flex-wrap gap-3 mt-4">
+                                            {selectedProject.link && (
+                                                <a
+                                                    href={selectedProject.link}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-gold text-gold-foreground font-bold text-sm tracking-wide uppercase rounded-sm hover:bg-gold/90 transition-colors"
+                                                >
+                                                    Visit Project <ExternalLink className="w-4 h-4" />
+                                                </a>
+                                            )}
+                                            {selectedProject.video && (
+                                                <a
+                                                    href={selectedProject.video}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/10 text-white font-bold text-sm tracking-wide uppercase rounded-sm hover:bg-white/20 transition-colors border border-white/10"
+                                                >
+                                                    Watch Demo <Play className="w-4 h-4 ml-1 fill-current" />
+                                                </a>
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {/* Body */}
+                                <div className="p-8 md:p-12 space-y-12">
+                                    {/* Overview */}
+                                    <div className="grid md:grid-cols-[160px_1fr] gap-8">
+                                        <h3 className="text-sm font-mono uppercase tracking-widest text-muted-foreground mt-1">Overview</h3>
+                                        <p className="text-lg text-white/90 leading-relaxed max-w-2xl">
+                                            {selectedProject.details.problem}
+                                        </p>
+                                    </div>
+
+                                    {/* Solution (What I Built) */}
+                                    <div className="grid md:grid-cols-[160px_1fr] gap-8 border-t border-white/5 pt-12">
+                                        <h3 className="text-sm font-mono uppercase tracking-widest text-muted-foreground mt-1">What I Built</h3>
+                                        <div className="space-y-4 max-w-2xl">
+                                            <p className="text-lg text-white/90 leading-relaxed">
+                                                {selectedProject.details.solution}
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    {/* My Role */}
+                                    <div className="grid md:grid-cols-[160px_1fr] gap-8 border-t border-white/5 pt-12">
+                                        <h3 className="text-sm font-mono uppercase tracking-widest text-muted-foreground mt-1">My Role</h3>
+                                        <ul className="space-y-3">
+                                            {selectedProject.details.role.map((role, i) => (
+                                                <li key={i} className="flex items-start gap-3 text-base text-muted-foreground">
+                                                    <span className="w-1.5 h-1.5 rounded-full bg-gold mt-2 shrink-0" />
+                                                    {role}
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </div>
+
+                                    {/* Outcome */}
+                                    <div className="grid md:grid-cols-[160px_1fr] gap-8 border-t border-white/5 pt-12">
+                                        <h3 className="text-sm font-mono uppercase tracking-widest text-muted-foreground mt-1">Outcome</h3>
+                                        <p className="text-lg font-serif italic text-white/80 border-l-2 border-gold/30 pl-4">
+                                            "{selectedProject.details.outcome}"
                                         </p>
                                     </div>
                                 </div>
-
-                                {/* My Role */}
-                                <div className="grid md:grid-cols-[160px_1fr] gap-8 border-t border-white/5 pt-12">
-                                    <h3 className="text-sm font-mono uppercase tracking-widest text-muted-foreground mt-1">My Role</h3>
-                                    <ul className="space-y-3">
-                                        {selectedProject.details.role.map((role, i) => (
-                                            <li key={i} className="flex items-start gap-3 text-base text-muted-foreground">
-                                                <span className="w-1.5 h-1.5 rounded-full bg-gold mt-2 shrink-0" />
-                                                {role}
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </div>
-
-                                {/* Outcome */}
-                                <div className="grid md:grid-cols-[160px_1fr] gap-8 border-t border-white/5 pt-12">
-                                    <h3 className="text-sm font-mono uppercase tracking-widest text-muted-foreground mt-1">Outcome</h3>
-                                    <p className="text-lg font-serif italic text-white/80 border-l-2 border-gold/30 pl-4">
-                                        "{selectedProject.details.outcome}"
-                                    </p>
-                                </div>
-                            </div>
-                        </motion.div>
-                    </div>
+                            </motion.div>
+                        </div>
+                    </Portal>
                 )}
             </AnimatePresence>
         </section>
     );
+}
+
+function Portal({ children }: { children: React.ReactNode }) {
+    const [mounted, setMounted] = useState(false);
+
+    useEffect(() => {
+        setMounted(true);
+        return () => setMounted(false);
+    }, []);
+
+    if (!mounted) return null;
+
+    return createPortal(children, document.body);
 }
