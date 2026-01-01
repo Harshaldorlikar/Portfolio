@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { X, Calendar, ChevronRight } from "lucide-react";
@@ -72,6 +72,17 @@ const experiences = [
 
 export function Experience() {
     const [selectedExp, setSelectedExp] = useState<typeof experiences[0] | null>(null);
+
+    useEffect(() => {
+        if (selectedExp) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset";
+        }
+        return () => {
+            document.body.style.overflow = "unset";
+        };
+    }, [selectedExp]);
 
     return (
         <section id="experience" className="py-24 bg-background/50">

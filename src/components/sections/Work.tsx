@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { X, ExternalLink, Play, Calendar } from "lucide-react";
@@ -92,6 +92,17 @@ const projects = [
 
 export function Work() {
     const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+
+    useEffect(() => {
+        if (selectedProject) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset";
+        }
+        return () => {
+            document.body.style.overflow = "unset";
+        };
+    }, [selectedProject]);
 
     return (
         <section id="work" className="py-24 relative z-10">
