@@ -12,8 +12,8 @@ const projects = [
     {
         id: "agentos",
         title: "AgentOS",
-        subtitle: "Autonomous AI Operating System",
-        timeline: "Aug 2025 – Aug 2025",
+        subtitle: "Autonomous AI Operating System Concept",
+        timeline: "Aug 2025 — Proof-of-Concept Sprint",
         summary: "An AI-native operating system designed to let autonomous agents perceive, reason, and act inside real software environments.",
         tags: ["Product vision", "System architecture", "Agent roles", "Rule-based AI"],
         link: "https://osagent.tech",
@@ -34,8 +34,8 @@ const projects = [
         id: "agentic-browser",
         title: "Agentic Browser",
         subtitle: "Interface Layer for Autonomous Agents",
-        timeline: "Jan 2025 – Present",
-        summary: "A browser UI exploring what happens when the browser itself is designed for AI agents, not just humans.",
+        timeline: "Jan 2025 – Present (Ongoing Research & Prototype)",
+        summary: "An AI-first browser prototype exploring how autonomous agents can operate within the user’s interface layer while collaborating with humans in real time.",
         tags: ["Product Concept", "UX/UI Design", "Prototyping", "Trust & Safety"],
         link: "https://osagent.tech/Browser.html",
         details: {

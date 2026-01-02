@@ -15,10 +15,10 @@ const experiences = [
         role: "UX Research Participant (Selected & Referred)",
         company: "Google",
         dates: "Feb 2022 – Sep 2025",
-        summary: "Selected and repeatedly referred to participate in paid, early-stage UX research studies for Google products. Worked directly with Google UX research teams to evaluate workflows, usability, and user behavior prior to public release.",
+        summary: "Selected and repeatedly referred to participate in paid Google UX research initiatives (participant in contracted studies) across YouTube, Google One, and Circle to Search.",
         tags: ["Product Validation", "Usability Testing", "Feedback Loops"],
         details: {
-            overview: "Selected and repeatedly referred to participate in paid, early-stage UX research studies for Google products. Worked directly with Google UX research teams to evaluate workflows, usability, and user behavior prior to public release. This experience significantly shaped how I think about product validation, iteration, and decision-making at scale.",
+            overview: "Selected and repeatedly referred to participate in paid Google UX research initiatives (participant in contracted studies) across YouTube, Google One, and Circle to Search. This experience significantly shaped how I think about product validation, iteration, and decision-making at scale.",
             products: [
                 {
                     name: "YouTube",

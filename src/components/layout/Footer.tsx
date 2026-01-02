@@ -24,7 +24,7 @@ export function Footer() {
                             Harshal Dorlikar
                         </span>
                         <p className="text-muted-foreground text-sm max-w-[300px] font-light">
-                            Building products, systems, and teams. <br /> Always learning by doing.
+                            Building products, systems, and team workflows. <br /> Always learning by doing.
                         </p>
                     </div>
 
