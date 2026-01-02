@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
@@ -72,7 +73,7 @@ export function Header() {
 
                     {/* Mobile Menu Toggle */}
                     <button
-                        className="md:hidden relative z-50 p-2 text-foreground"
+                        className="md:hidden relative z-[70] p-2 text-foreground"
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     >
                         {mobileMenuOpen ? <X /> : <Menu />}
@@ -83,32 +84,55 @@ export function Header() {
             {/* Mobile Menu Overlay */}
             <AnimatePresence>
                 {mobileMenuOpen && (
-                    <motion.div
-                        initial={{ opacity: 0, y: -20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
-                        className="fixed inset-0 z-40 bg-background/95 backdrop-blur-xl flex flex-col items-center justify-center space-y-8 md:hidden"
-                    >
-                        {navItems.map((item) => (
-                            <a
-                                key={item.name}
-                                href={item.href}
-                                onClick={(e) => handleScroll(e, item.href)}
-                                className="text-2xl font-serif font-medium text-foreground hover:text-gold transition-colors"
-                            >
-                                {item.name}
-                            </a>
-                        ))}
-                        <Button
-                            asChild
-                            size="lg"
-                            className="mt-8 rounded-none font-mono uppercase tracking-widest bg-gold text-gold-foreground hover:bg-gold/90"
+                    <Portal>
+                        <motion.div
+                            initial={{ opacity: 0, y: -20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -20 }}
+                            className="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center space-y-8 md:hidden"
                         >
-                            <a href="#contact" onClick={(e) => handleScroll(e, "#contact")}>Work With Me</a>
-                        </Button>
-                    </motion.div>
+                            {/* Close Button Inside Portal */}
+                            <button
+                                className="absolute top-6 right-6 p-2 text-foreground hover:text-gold transition-colors"
+                                onClick={() => setMobileMenuOpen(false)}
+                            >
+                                <X className="w-8 h-8" />
+                            </button>
+
+                            {navItems.map((item) => (
+                                <a
+                                    key={item.name}
+                                    href={item.href}
+                                    onClick={(e) => handleScroll(e, item.href)}
+                                    className="text-2xl font-serif font-medium text-foreground hover:text-gold transition-colors"
+                                >
+                                    {item.name}
+                                </a>
+                            ))}
+                            <Button
+                                asChild
+                                size="lg"
+                                className="mt-8 rounded-none font-mono uppercase tracking-widest bg-gold text-gold-foreground hover:bg-gold/90"
+                            >
+                                <a href="#contact" onClick={(e) => handleScroll(e, "#contact")}>Work With Me</a>
+                            </Button>
+                        </motion.div>
+                    </Portal>
                 )}
             </AnimatePresence>
         </header>
     );
+}
+
+function Portal({ children }: { children: React.ReactNode }) {
+    const [mounted, setMounted] = React.useState(false);
+
+    React.useEffect(() => {
+        setMounted(true);
+        return () => setMounted(false);
+    }, []);
+
+    if (!mounted) return null;
+
+    return createPortal(children, document.body);
 }
