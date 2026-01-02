@@ -6,7 +6,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { motion, useScroll, useMotionValueEvent, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Download } from "lucide-react";
 
 const navItems = [
     { name: "About", href: "#about" },
@@ -61,6 +61,14 @@ export function Header() {
                             {item.name}
                         </a>
                     ))}
+                    <a
+                        href="https://drive.google.com/file/d/1fsQC_WFV89Ji8zGFEIsQJ3bOnpEyh-UX/view?usp=sharing"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider cursor-pointer flex items-center gap-1"
+                    >
+                        Resume <Download className="w-4 h-4" />
+                    </a>
                 </nav>
 
                 <div className="flex items-center gap-4">
@@ -109,6 +117,16 @@ export function Header() {
                                     {item.name}
                                 </a>
                             ))}
+
+                            <a
+                                href="https://drive.google.com/file/d/1fsQC_WFV89Ji8zGFEIsQJ3bOnpEyh-UX/view?usp=sharing"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-2xl font-serif font-medium text-foreground hover:text-gold transition-colors flex items-center gap-2"
+                            >
+                                Resume <Download className="w-5 h-5" />
+                            </a>
+
                             <Button
                                 asChild
                                 size="lg"

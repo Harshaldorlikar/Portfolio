@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
+import { Download } from "lucide-react";
 
 export function Hero() {
     return (
@@ -43,6 +44,16 @@ export function Hero() {
                             <Link href="#contact">
                                 [ WORK WITH ME ]
                             </Link>
+                        </Button>
+                        <Button asChild variant="outline" size="lg" className="h-14 px-8 text-base font-mono rounded-none border-white/20 hover:bg-white/5 uppercase tracking-widest bg-transparent">
+                            <a
+                                href="https://drive.google.com/file/d/1fsQC_WFV89Ji8zGFEIsQJ3bOnpEyh-UX/view?usp=sharing"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2"
+                            >
+                                Resume <Download className="w-4 h-4" />
+                            </a>
                         </Button>
                     </div>
                 </motion.div>

@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowUp, Linkedin, Twitter, Github } from "lucide-react";
+import { ArrowUp, Linkedin, Twitter, Github, Download } from "lucide-react";
 
 export function Footer() {
     const currentYear = new Date().getFullYear();
@@ -43,22 +43,33 @@ export function Footer() {
 
                 {/* Actions */}
                 <div className="flex flex-col items-center md:items-end gap-6">
-                    <Button
-                        asChild
-                        variant="default"
-                        size="lg"
-                        className="rounded-none font-mono uppercase tracking-widest bg-gold text-gold-foreground hover:bg-gold/90 hover:scale-105 transition-all shadow-lg shadow-gold/20"
-                    >
-                        <a
-                            href="#contact"
-                            onClick={(e) => {
-                                e.preventDefault();
-                                document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-                            }}
+                    <div className="flex flex-col gap-4 w-full md:w-auto">
+                        <Button
+                            asChild
+                            variant="default"
+                            size="lg"
+                            className="rounded-none font-mono uppercase tracking-widest bg-gold text-gold-foreground hover:bg-gold/90 hover:scale-105 transition-all shadow-lg shadow-gold/20 w-full md:w-auto"
                         >
-                            [ WORK WITH ME ]
+                            <a
+                                href="#contact"
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+                                }}
+                            >
+                                [ WORK WITH ME ]
+                            </a>
+                        </Button>
+
+                        <a
+                            href="https://drive.google.com/file/d/1fsQC_WFV89Ji8zGFEIsQJ3bOnpEyh-UX/view?usp=sharing"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-xs font-mono uppercase tracking-widest text-muted-foreground hover:text-gold transition-colors flex items-center justify-center md:justify-end gap-2 py-2"
+                        >
+                            Download Resume <Download className="w-3 h-3" />
                         </a>
-                    </Button>
+                    </div>
 
                     <button
                         onClick={scrollToTop}
