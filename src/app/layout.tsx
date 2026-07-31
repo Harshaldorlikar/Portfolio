@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Header } from "@/components/layout/Header";
@@ -18,10 +18,38 @@ const playfair = Playfair_Display({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+};
+
 export const metadata: Metadata = {
-  title: "Harshal Dorlikar | Product Builder & Engineer",
-  description: "Portfolio of Harshal Dorlikar — a product builder and engineer working on agentic AI systems such as AgentOS. Experience includes system design, UX research (including studies conducted by Google), and building AI-first products.",
-  keywords: ["Harshal Dorlikar", "AgentOS", "Agentic AI", "Product Builder", "System Design", "UX Research"],
+  metadataBase: new URL("https://harshaldorlikar.me"),
+  title: "Harshal Dorlikar | Founder & Builder",
+  description: "Portfolio of Harshal Dorlikar, a product builder and Founder of Kosmo, an AI Prompt Compiler. I build 100% with AI to create production-ready software and agentic systems.",
+  keywords: ["Harshal Dorlikar", "Kosmo", "Agentic AI", "Founder", "Product Builder", "AI Development", "Next.js", "A-41 Housing", "AI Prompt Compiler"],
+  authors: [{ name: "Harshal Dorlikar" }],
+  creator: "Harshal Dorlikar",
+  openGraph: {
+    title: "Harshal Dorlikar | Founder & Builder",
+    description: "Portfolio of Harshal Dorlikar, a product builder and Founder of Kosmo.",
+    url: "https://harshaldorlikar.me",
+    siteName: "Harshal Dorlikar Portfolio",
+
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Harshal Dorlikar | Founder & Builder",
+    description: "Portfolio of Harshal Dorlikar, a product builder and Founder of Kosmo.",
+    creator: "@HarshalDorlikar",
+
+  },
+  alternates: {
+    canonical: "https://harshaldorlikar.me",
+  },
   verification: {
     google: "AJAn7Tw_Eu2b456_awsX96MTEGy8LeA6G0fZ_XUNszQ",
   },
@@ -32,13 +60,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
+  const jsonLdPerson = {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Harshal Dorlikar",
     "url": "https://harshaldorlikar.me",
-    "jobTitle": "Product Builder & Engineer",
-    "description": "Harshal Dorlikar is a product builder and engineer based in India, focused on building and experimenting with agentic AI systems and AI-first products. He is the creator of AgentOS and has participated in multiple UX research studies conducted by Google.",
+    "jobTitle": "Founder & Product Builder",
+    "description": "Harshal Dorlikar is a product builder based in India, currently the Founder of Kosmo. He focuses on building 100% with AI, shipping products at immense speed.",
     "alumniOf": [
       {
         "@type": "EducationalOrganization",
@@ -48,10 +76,10 @@ export default function RootLayout({
     ],
     "knowsAbout": [
       "Agentic AI Systems",
-      "AgentOS",
+      "AI Prompt Compilers",
       "System Design",
-      "UX Research",
-      "Product Prototyping"
+      "Next.js App Router",
+      "Full-Stack Development"
     ],
     "sameAs": [
       "https://github.com/Harshaldorlikar",
@@ -60,17 +88,26 @@ export default function RootLayout({
     ]
   };
 
+  const jsonLdWebSite = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Harshal Dorlikar Portfolio",
+    "url": "https://harshaldorlikar.me"
+  };
+
   return (
     <html lang="en" className="dark scroll-smooth">
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-      </head>
       <body
         className={`${inter.variable} ${playfair.variable} antialiased bg-background text-foreground selection:bg-primary selection:text-primary-foreground relative`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdPerson) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdWebSite) }}
+        />
         <ParticleBackground />
         <Header />
         <main className="min-h-screen">

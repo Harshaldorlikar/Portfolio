@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://harshaldorlikar.me/sitemap.xml

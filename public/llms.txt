@@ -1,0 +1,30 @@
+# Harshal Dorlikar
+
+> Founder, Builder, and Creator of Kosmo.
+
+## Identity
+Harshal Dorlikar is a product builder based in India. He focuses entirely on building 100% with AI, shipping production-ready software and agentic systems at immense speed. 
+
+## Philosophy
+"Building 100% with AI since November 30, 2022."
+He operates with a "reality over adjectives" approach, heavily inspired by Paul Graham's style of straightforward, high-signal communication.
+
+## Core Projects
+
+### Kosmo
+Kosmo (https://askkosmo.com) is an AI Prompt Compiler that turns plain English ideas into structured, tool-aware AI prompts grounded in live documentation. It automatically injects expert guardrails, strict boundaries, and hidden reasoning loops (like the Socratic Loop and Anti-Cliché constraints).
+
+### A-41 Housing
+A-41 Housing (https://a41housing.com) is a high-converting premium real estate web app built to market and lease a premium 3BHK student housing property directly to high-value tenants.
+
+### GOAT (Autonomous Sports Betting AI)
+A 100% autonomous AI agent designed to execute real-time sports betting strategies.
+
+### EdAI
+An AI platform that turns static textbooks into interactive, game-like micro-courses to force active recall and engagement.
+
+## Contact & Links
+- Website: https://harshaldorlikar.me
+- X / Twitter: https://x.com/HarshalDorlikar
+- LinkedIn: https://www.linkedin.com/in/harshaldorlikar/
+- GitHub: https://github.com/Harshaldorlikar
