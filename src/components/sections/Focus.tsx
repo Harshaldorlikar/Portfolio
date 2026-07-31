@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Lightbulb, Layout, Server, Terminal, ArrowRight } from "lucide-react";
+import { Lightbulb, Layout, Server, Terminal, ArrowRight, Cpu, Cloud } from "lucide-react";
 
 // Updated Data Structure based on User Request
 const focusAreas = [
@@ -30,19 +30,36 @@ const focusAreas = [
         items: [
             "Designing systems that tolerate failure and ambiguity",
             "Building internal tools that unblock real work",
-            "Thinking in workflows, state, and recovery — not just features"
+            "Thinking in workflows, state, and recovery, not just features"
+        ]
+    },
+    {
+        title: "Agent Engineering",
+        icon: Cpu,
+        items: [
+            "Loop Engineering for robust AI reasoning constraints",
+            "Model Context Protocol (MCP) & Agent Mesh integration",
+            "Retrieval-Augmented Generation (RAG) pipelines",
+            "Autonomous Agent Creation via specialized SDKs and ADKs"
         ]
     },
     {
         title: "Execution Stack",
         icon: Terminal,
         items: [
-            "Rapid prototyping with AI-assisted development",
+            "Claude & Claude Code for AI-native workflows",
             "Google Anti-Gravity (Agent First IDE)",
             "Bubble.io for fast, real-world MVPs",
-            "GitHub for version control and iteration",
-            "Figma for workflow and interaction thinking",
-            "Notion & Trello for execution and operational clarity"
+            "Figma, GitHub & Notion for operational clarity"
+        ]
+    },
+    {
+        title: "Infrastructure & Cloud",
+        icon: Cloud,
+        items: [
+            "Google Cloud (GCP) & Digital Ocean for deployment",
+            "Supabase & Vector Databases for AI-first backends",
+            "Managing modern scalable system architectures"
         ]
     }
 ];
@@ -58,7 +75,7 @@ export function Focus() {
                     <h2 className="text-3xl md:text-5xl font-serif font-medium text-white/90">Focus Areas & Capabilities</h2>
                 </div>
 
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {focusAreas.map((area, index) => (
                         <motion.div
                             key={index}

@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { ArrowUp, Linkedin, Twitter, Github, Download } from "lucide-react";
+import Link from "next/link";
 
 export function Footer() {
     const currentYear = new Date().getFullYear();
@@ -50,17 +51,21 @@ export function Footer() {
                             size="lg"
                             className="rounded-none font-mono uppercase tracking-widest bg-gold text-gold-foreground hover:bg-gold/90 hover:scale-105 transition-all shadow-lg shadow-gold/20 w-full md:w-auto"
                         >
-                            <a
-                                href="#contact"
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
-                                }}
-                            >
-                                [ WORK WITH ME ]
-                            </a>
+                            <Link href="/contact">
+                                [ GET IN TOUCH ]
+                            </Link>
                         </Button>
 
+                        <div className="flex justify-center md:justify-end gap-6 mt-2">
+                            <Link href="/blogs" className="text-xs font-mono uppercase tracking-widest text-muted-foreground hover:text-gold transition-colors">
+                                Blogs
+                            </Link>
+                            <Link href="/faq" className="text-xs font-mono uppercase tracking-widest text-muted-foreground hover:text-gold transition-colors">
+                                FAQ
+                            </Link>
+                        </div>
+
+                        {/* 
                         <a
                             href="https://drive.google.com/file/d/1fsQC_WFV89Ji8zGFEIsQJ3bOnpEyh-UX/view?usp=sharing"
                             target="_blank"
@@ -69,6 +74,7 @@ export function Footer() {
                         >
                             Download Resume <Download className="w-3 h-3" />
                         </a>
+                        */}
                     </div>
 
                     <button

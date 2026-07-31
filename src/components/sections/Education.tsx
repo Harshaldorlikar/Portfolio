@@ -43,7 +43,7 @@ export function Education() {
                             <div className="group relative">
                                 <h4 className="font-semibold text-lg text-white">Y Combinator Startup School (Online)</h4>
                                 <div className="flex flex-col text-muted-foreground mt-1 text-sm font-mono">
-                                    <span>Participant — Jun 2022 to Aug 2022</span>
+                                    <span>Participant | Jun 2022 to Aug 2022</span>
                                 </div>
                                 <p className="text-sm text-white/70 mt-3 leading-relaxed opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-32 transition-all duration-300 overflow-hidden">
                                     Selected as one of ~10,000 participants globally for YC’s 3-month online startup program focused on early-stage product building, validation, and founder execution.

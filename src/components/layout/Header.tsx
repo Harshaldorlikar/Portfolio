@@ -9,11 +9,12 @@ import { Button } from "@/components/ui/button";
 import { Menu, X, Download } from "lucide-react";
 
 const navItems = [
-    { name: "About", href: "#about" },
-    { name: "Work", href: "#work" },
-    { name: "Experience", href: "#experience" },
-    { name: "Focus", href: "#focus" },
-    { name: "Contact", href: "#contact" },
+    { name: "About", href: "/about" },
+    { name: "Work", href: "/work" },
+    { name: "Experience", href: "/experience" },
+    { name: "Focus", href: "/focus" },
+    { name: "Blogs", href: "/blogs" },
+    { name: "Contact", href: "/contact" },
 ];
 
 export function Header() {
@@ -25,42 +26,32 @@ export function Header() {
         setIsScrolled(latest > 50);
     });
 
-    const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, href: string) => {
-        e.preventDefault();
-        const targetId = href.replace("#", "");
-        const elem = document.getElementById(targetId);
-        if (elem) {
-            elem.scrollIntoView({ behavior: "smooth" });
-            setMobileMenuOpen(false); // Close mobile menu on click
-        }
-    };
-
     return (
         <header
             className={cn(
-                "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+                "fixed top-0 left-0 right-0 z-[99] transition-all duration-300",
                 isScrolled
                     ? "bg-background/80 backdrop-blur-md border-b border-border/50 py-4"
                     : "bg-transparent py-6"
             )}
         >
             <div className="container mx-auto px-6 flex items-center justify-between">
-                <Link href="/" className="text-xl font-serif font-bold tracking-tight uppercase relative z-50" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+                <Link href="/" className="text-xl font-serif font-bold tracking-tight uppercase relative z-50">
                     Harshal Dorlikar
                 </Link>
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex items-center gap-8">
                     {navItems.map((item) => (
-                        <a
+                        <Link
                             key={item.name}
                             href={item.href}
-                            onClick={(e) => handleScroll(e, item.href)}
                             className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors uppercase tracking-wider cursor-pointer"
                         >
                             {item.name}
-                        </a>
+                        </Link>
                     ))}
+                    {/* 
                     <a
                         href="https://drive.google.com/file/d/1fsQC_WFV89Ji8zGFEIsQJ3bOnpEyh-UX/view?usp=sharing"
                         target="_blank"
@@ -69,6 +60,7 @@ export function Header() {
                     >
                         Resume <Download className="w-4 h-4" />
                     </a>
+                    */}
                 </nav>
 
                 <div className="flex items-center gap-4">
@@ -76,7 +68,7 @@ export function Header() {
                         asChild
                         className="hidden md:inline-flex rounded-sm font-mono text-xs font-bold uppercase tracking-widest bg-gold text-gold-foreground hover:bg-gold/90 transition-colors"
                     >
-                        <a href="#contact" onClick={(e) => handleScroll(e, "#contact")}>Work With Me</a>
+                        <Link href="/contact">Get In Touch</Link>
                     </Button>
 
                     {/* Mobile Menu Toggle */}
@@ -97,7 +89,7 @@ export function Header() {
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
-                            className="fixed inset-0 z-[100] bg-black flex flex-col items-center justify-center space-y-8 md:hidden"
+                            className="fixed inset-0 z-[999] bg-black flex flex-col items-center justify-center space-y-8 md:hidden"
                         >
                             {/* Close Button Inside Portal */}
                             <button
@@ -108,16 +100,17 @@ export function Header() {
                             </button>
 
                             {navItems.map((item) => (
-                                <a
+                                <Link
                                     key={item.name}
                                     href={item.href}
-                                    onClick={(e) => handleScroll(e, item.href)}
+                                    onClick={() => setMobileMenuOpen(false)}
                                     className="text-2xl font-serif font-medium text-foreground hover:text-gold transition-colors"
                                 >
                                     {item.name}
-                                </a>
+                                </Link>
                             ))}
 
+                            {/* 
                             <a
                                 href="https://drive.google.com/file/d/1fsQC_WFV89Ji8zGFEIsQJ3bOnpEyh-UX/view?usp=sharing"
                                 target="_blank"
@@ -126,13 +119,14 @@ export function Header() {
                             >
                                 Resume <Download className="w-5 h-5" />
                             </a>
+                            */}
 
                             <Button
                                 asChild
                                 size="lg"
                                 className="mt-8 rounded-none font-mono uppercase tracking-widest bg-gold text-gold-foreground hover:bg-gold/90"
                             >
-                                <a href="#contact" onClick={(e) => handleScroll(e, "#contact")}>Work With Me</a>
+                                <Link href="/contact" onClick={() => setMobileMenuOpen(false)}>Get In Touch</Link>
                             </Button>
                         </motion.div>
                     </Portal>

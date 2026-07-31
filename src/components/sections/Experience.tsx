@@ -10,11 +10,72 @@ import { cn } from "@/lib/utils";
 // --- Experience Data ---
 const experiences = [
     {
+        id: "kosmo",
+        type: "Product Development & Startup",
+        role: "Founder",
+        company: "Kosmo",
+        dates: "June 2026 to Present",
+        summary: "Founded and developed an intelligent prompt compiler that turns raw ideas into structured, tool-aware AI prompts.",
+        tags: ["AI", "Compilers", "Product Design"],
+        details: {
+            overview: "Built an intelligent prompt compiler that takes raw ideas and automatically injects expert guardrails, strict boundaries, and hidden reasoning loops.",
+            problem: "Most AI tools fail because of hidden assumptions and tool mismatch. You cannot ask an AI to build something if you do not know what to ask for.",
+            work: [
+                "Designed the knowledge vault architecture for live documentation syncing.",
+                "Engineered the Socratic Loop and Anti-Cliché constraints.",
+                "Built the end-to-end user experience and web platform."
+            ],
+            impact: "Created a product that is currently in its waitlist phase, offering free compiles to early users to completely eliminate prompt babysitting.",
+            keyTakeaway: "Building a complex compiler requires deep understanding of the underlying AI tools and precise guardrails."
+        }
+    },
+    {
+        id: "vibecon",
+        type: "Hackathon & Rapid Prototyping",
+        role: "Selected Competitor",
+        company: "VibeCon Hackathon",
+        dates: "25 Mar 2026 to 8 Apr 2026",
+        summary: "Competed in an elite, selection-led hackathon showcasing AI-built projects under the 'vibe coding' philosophy.",
+        tags: ["Hackathon", "AI Development", "Rapid Prototyping"],
+        details: {
+            overview: "Participated in an elite, selection-led hackathon where I competed by showcasing my AI-built projects. Used my work on EdAI as the core demonstration of building 100% with AI.",
+            problem: "Traditional software development is slow. 'Vibe coding' demands taking ideas to functional products in record time using AI, requiring intense speed and execution.",
+            work: [
+                "Created an application pitch and demo video.",
+                "Demonstrated rapid prototyping capabilities by building a functional AI product.",
+                "Scripted, recorded, and presented the EdAI demo video."
+            ],
+            impact: "Successfully secured entry into Round 2 out of over 20,000 applicants. The founder of Emergent officially reposted my application video.",
+            keyTakeaway: "Rapid prototyping with AI allows for executing complex ideas in record time."
+        }
+    },
+    {
+        id: "edai",
+        type: "Product Development",
+        role: "Product Manager",
+        company: "EdAI",
+        dates: "Jan 2026 to June 2026",
+        summary: "Led the development of an AI platform that turns static textbooks into interactive, game-like micro-courses.",
+        tags: ["EdTech", "AI Agents", "Gamification"],
+        details: {
+            overview: "Developed a working product built 100% with AI. It ingests static educational content and automatically restructures it into bite-sized, game-like interactive courses.",
+            problem: "Standard textbooks and traditional online courses suffer from low engagement. Students consume information passively rather than interacting with the material.",
+            work: [
+                "Owned the entire idea from concept to functional product in 5 months.",
+                "Built the core AI transformation logic.",
+                "Developed the gamified front end.",
+                "Created the demo and application pitch for Emergent."
+            ],
+            impact: "Successfully took a raw idea to a working product in 5 months and used it as the core project for my VibeCon hackathon entry.",
+            keyTakeaway: "Gamification and interactive learning significantly improve student engagement over traditional static content."
+        }
+    },
+    {
         id: "google",
         type: "Paid User Research",
         role: "UX Research Participant (Selected & Referred)",
         company: "Google",
-        dates: "Feb 2022 – Sep 2025",
+        dates: "Feb 2022 to Sep 2025",
         summary: "Selected and repeatedly referred to participate in paid Google UX research initiatives (participant in contracted studies) across YouTube, Google One, and Circle to Search.",
         tags: ["Product Validation", "Usability Testing", "Feedback Loops"],
         details: {
@@ -34,7 +95,7 @@ const experiences = [
                 },
                 {
                     name: "Circle to Search",
-                    date: "Aug 2025 – Sep 2025",
+                    date: "Aug 2025 to Sep 2025",
                     focus: "Evaluated discoverability, intent recognition, and contextual relevance for gesture-based search.",
                     learning: "New interaction paradigms require exceptional UX clarity to build user trust."
                 }
@@ -53,7 +114,7 @@ const experiences = [
         type: "Internal Tools & Workflow Automation",
         role: "IT Intern",
         company: "Pioneer Automation Services",
-        dates: "May 2024 – July 2024",
+        dates: "May 2024 to July 2024",
         summary: "Joined the internal tools team to support senior engineers in improving operational efficiency, reporting accuracy, and workflow automation.",
         tags: ["Process Automation", "Internal Tools", "Documentation"],
         details: {
@@ -84,6 +145,17 @@ export function Experience() {
             document.body.style.overflow = "unset";
         };
     }, [selectedExp]);
+
+    useEffect(() => {
+        const hash = window.location.hash.replace('#', '');
+        if (hash) {
+            const exp = experiences.find(e => e.id === hash);
+            if (exp) {
+                // eslint-disable-next-line react-hooks/set-state-in-effect
+                setSelectedExp(exp);
+            }
+        }
+    }, []);
 
     return (
         <section id="experience" className="py-24 bg-background/50">
@@ -160,7 +232,7 @@ export function Experience() {
                                 <X className="w-5 h-5 text-white/70" />
                             </button>
 
-                            <div className="p-8 md:p-10 border-b border-white/5 bg-white/[0.02]">
+                            <div className="p-6 md:p-10 border-b border-white/5 bg-white/[0.02]">
                                 <h2 className="text-3xl font-serif text-white mb-2">{selectedExp.company}</h2>
                                 <h3 className="text-xl text-gold">{selectedExp.role}</h3>
                                 <div className="flex items-center gap-3 text-muted-foreground font-mono text-xs tracking-widest uppercase mt-4">
@@ -169,7 +241,7 @@ export function Experience() {
                                 </div>
                             </div>
 
-                            <div className="p-8 md:p-10 space-y-10">
+                            <div className="p-6 md:p-10 space-y-10">
                                 {/* Google Specific or Generic Layout */}
                                 {selectedExp.id === 'google' ? (
                                     <>

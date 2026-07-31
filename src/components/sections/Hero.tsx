@@ -21,30 +21,29 @@ export function Hero() {
                 >
                     <Badge variant="outline" className="text-sm py-1.5 px-4 border-white/10 bg-white/5 text-muted-foreground backdrop-blur-sm rounded-full font-mono uppercase tracking-widest">
                         <span className="w-2 h-2 rounded-full bg-gold mr-2 inline-block animate-pulse" />
-                        Product · Systems · UX · Operations
+                        Founder · Builder
                     </Badge>
 
-                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-medium leading-[1.1] tracking-tight">
-                        Founder-minded product <br className="hidden md:block" />
-                        builder designing <span className="italic font-light">AI</span> <br className="hidden md:block" />
-                        <span className="italic font-light">systems</span>, workflows, and <br className="hidden md:block" />
-                        user experiences.
+                    <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-serif font-medium leading-[1.1] tracking-tight">
+                        I build things with AI.
                     </h1>
 
-                    <p className="text-lg md:text-xl text-muted-foreground/80 leading-relaxed max-w-2xl font-mono">
-                        I work across product management, system architecture, UX, and operations to turn ambiguous ideas into real, usable products.
+                    <p className="text-xl md:text-2xl text-muted-foreground/80 leading-relaxed max-w-2xl font-mono mt-2">
+                        Then I noticed what keeps breaking.<br className="hidden md:block" />
+                        Now I am building the fix. It is called <a href="https://askkosmo.com" target="_blank" rel="noopener noreferrer" className="bg-white text-black px-2 py-0.5 rounded-sm hover:bg-gold transition-colors inline-block mx-1 font-medium">Kosmo</a>.
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-6 mt-8">
                         <Button asChild variant="outline" size="lg" className="h-14 px-8 text-base font-mono rounded-none border-white/20 hover:bg-white/5 uppercase tracking-widest bg-transparent">
-                            <Link href="#work">[ VIEW SELECTED WORK ]</Link>
+                            <Link href="/work">[ VIEW SELECTED WORK ]</Link>
                         </Button>
 
                         <Button asChild size="lg" className="h-14 px-8 text-base font-bold rounded-none shadow-lg shadow-gold/10 bg-gold text-gold-foreground hover:bg-gold/90 hover:shadow-gold/20 transition-all uppercase tracking-widest border border-gold/20">
-                            <Link href="#contact">
-                                [ WORK WITH ME ]
+                            <Link href="/contact">
+                                [ GET IN TOUCH ]
                             </Link>
                         </Button>
+                        {/* 
                         <Button asChild variant="outline" size="lg" className="h-14 px-8 text-base font-mono rounded-none border-white/20 hover:bg-white/5 uppercase tracking-widest bg-transparent">
                             <a
                                 href="https://drive.google.com/file/d/1fsQC_WFV89Ji8zGFEIsQJ3bOnpEyh-UX/view?usp=sharing"
@@ -55,6 +54,7 @@ export function Hero() {
                                 Resume <Download className="w-4 h-4" />
                             </a>
                         </Button>
+                        */}
                     </div>
                 </motion.div>
             </div>
