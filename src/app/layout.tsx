@@ -25,7 +25,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://harshaldorlikar.me"),
+  metadataBase: new URL("https://www.harshaldorlikar.me"),
   title: "Harshal Dorlikar | Founder & Builder",
   description: "Portfolio of Harshal Dorlikar, a product builder and Founder of Kosmo, an AI Prompt Compiler. I build 100% with AI to create production-ready software and agentic systems.",
   keywords: ["Harshal Dorlikar", "Kosmo", "Agentic AI", "Founder", "Product Builder", "AI Development", "Next.js", "A-41 Housing", "AI Prompt Compiler"],
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Harshal Dorlikar | Founder & Builder",
     description: "Portfolio of Harshal Dorlikar, a product builder and Founder of Kosmo.",
-    url: "https://harshaldorlikar.me",
+    url: "https://www.harshaldorlikar.me",
     siteName: "Harshal Dorlikar Portfolio",
 
     locale: "en_US",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
 
   },
   alternates: {
-    canonical: "https://harshaldorlikar.me",
+    canonical: "https://www.harshaldorlikar.me",
   },
   verification: {
     google: "AJAn7Tw_Eu2b456_awsX96MTEGy8LeA6G0fZ_XUNszQ",
@@ -64,7 +64,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Harshal Dorlikar",
-    "url": "https://harshaldorlikar.me",
+    "url": "https://www.harshaldorlikar.me",
     "jobTitle": "Founder & Product Builder",
     "description": "Harshal Dorlikar is a product builder based in India, currently the Founder of Kosmo. He focuses on building 100% with AI, shipping products at immense speed.",
     "alumniOf": [
@@ -93,7 +93,7 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "Harshal Dorlikar Portfolio",
-    "url": "https://harshaldorlikar.me"
+    "url": "https://www.harshaldorlikar.me"
   };
 
   return (

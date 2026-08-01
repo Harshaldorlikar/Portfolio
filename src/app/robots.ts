@@ -6,6 +6,6 @@ export default function robots(): MetadataRoute.Robots {
             userAgent: '*',
             allow: '/',
         },
-        sitemap: 'https://harshaldorlikar.me/sitemap.xml',
+        sitemap: 'https://www.harshaldorlikar.me/sitemap.xml',
     }
 }
