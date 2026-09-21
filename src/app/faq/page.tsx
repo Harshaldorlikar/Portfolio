@@ -3,6 +3,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "FAQ | Harshal Dorlikar",
   description: "Frequently asked questions about Harshal Dorlikar, Kosmo, and building 100% with AI.",
+  alternates: {
+    canonical: "/faq",
+  },
 };
 
 export default function FAQPage() {

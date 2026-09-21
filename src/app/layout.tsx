@@ -45,10 +45,6 @@ export const metadata: Metadata = {
     title: "Harshal Dorlikar | Founder & Builder",
     description: "Portfolio of Harshal Dorlikar, a product builder and Founder of Kosmo.",
     creator: "@HarshalDorlikar",
-
-  },
-  alternates: {
-    canonical: "https://harshaldorlikar.me",
   },
   verification: {
     google: "AJAn7Tw_Eu2b456_awsX96MTEGy8LeA6G0fZ_XUNszQ",

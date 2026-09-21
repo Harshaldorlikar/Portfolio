@@ -1,3 +1,13 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Blogs & Notes | Harshal Dorlikar",
+  description: "Essays, thoughts, and original writing by Harshal Dorlikar.",
+  alternates: {
+    canonical: "/blogs",
+  },
+};
+
 export default function BlogPage() {
   return (
     <div className="pt-32 pb-24 min-h-screen container mx-auto px-6 max-w-4xl">
