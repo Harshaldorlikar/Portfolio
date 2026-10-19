@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://harshaldorlikar.me"),
   title: "Harshal Dorlikar | Founder & Builder",
   description: "Portfolio of Harshal Dorlikar, a product builder and Founder of Kosmo, an AI Prompt Compiler. I build 100% with AI to create production-ready software and agentic systems.",
-  keywords: ["Harshal Dorlikar", "Kosmo", "Agentic AI", "Founder", "Product Builder", "AI Development", "Next.js", "A-41 Housing", "AI Prompt Compiler"],
+  keywords: ["Harshal Dorlikar", "Kosmo", "Agentic AI", "Founder", "Product Builder", "AI Development", "Next.js", "A-41 Housing", "AI Prompt Compiler", "Build with Gemini XPRIZE"],
   authors: [{ name: "Harshal Dorlikar" }],
   creator: "Harshal Dorlikar",
   openGraph: {
@@ -76,6 +76,9 @@ export default function RootLayout({
       "System Design",
       "Next.js App Router",
       "Full-Stack Development"
+    ],
+    "award": [
+      "Education and Human Potential Category Prize ($50,000), Build with Gemini XPRIZE (September 2026) for Kosmo"
     ],
     "sameAs": [
       "https://github.com/Harshaldorlikar",

@@ -15,8 +15,8 @@ const experiences = [
         role: "Founder",
         company: "Kosmo",
         dates: "June 2026 to Present",
-        summary: "Founded and developed an intelligent prompt compiler that turns raw ideas into structured, tool-aware AI prompts.",
-        tags: ["AI", "Compilers", "Product Design"],
+        summary: "Founded and developed an intelligent prompt compiler that turns raw ideas into structured, tool-aware AI prompts. Won the Education and Human Potential category prize ($50,000) in the Build with Gemini XPRIZE.",
+        tags: ["AI", "Compilers", "Product Design", "XPRIZE Category Prize"],
         details: {
             overview: "Built an intelligent prompt compiler that takes raw ideas and automatically injects expert guardrails, strict boundaries, and hidden reasoning loops.",
             problem: "Most AI tools fail because of hidden assumptions and tool mismatch. You cannot ask an AI to build something if you do not know what to ask for.",
@@ -25,7 +25,7 @@ const experiences = [
                 "Engineered the Socratic Loop and Anti-Cliché constraints.",
                 "Built the end-to-end user experience and web platform."
             ],
-            impact: "Created a product that is currently in its waitlist phase, offering free compiles to early users to completely eliminate prompt babysitting.",
+            impact: "Won the Education and Human Potential category prize ($50,000) in the global Build with Gemini XPRIZE in September 2026, selected from over 26,000 registered builders worldwide.",
             keyTakeaway: "Building a complex compiler requires deep understanding of the underlying AI tools and precise guardrails."
         }
     },

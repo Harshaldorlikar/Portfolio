@@ -13,6 +13,7 @@ He operates with a "reality over adjectives" approach, heavily inspired by Paul 
 
 ### Kosmo
 Kosmo (https://askkosmo.com) is an AI Prompt Compiler that turns plain English ideas into structured, tool-aware AI prompts grounded in live documentation. It automatically injects expert guardrails, strict boundaries, and hidden reasoning loops (like the Socratic Loop and Anti-Cliché constraints).
+- Recognition: Winner of the Education and Human Potential category prize ($50,000) in the global Build with Gemini XPRIZE competition (September 2026), selected from over 26,000 registered builders worldwide.
 
 ### A-41 Housing
 A-41 Housing (https://a41housing.com) is a high-converting premium real estate web app built to market and lease a premium 3BHK student housing property directly to high-value tenants.

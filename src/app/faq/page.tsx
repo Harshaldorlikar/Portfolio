@@ -23,6 +23,10 @@ export default function FAQPage() {
       answer: "Kosmo is an AI Prompt Compiler that turns plain English ideas into structured, tool-aware AI prompts grounded in live documentation. It automatically injects expert guardrails and hidden reasoning loops to eliminate prompt babysitting."
     },
     {
+      question: "Has Kosmo won any awards or competitions?",
+      answer: "Yes. In September 2026, Kosmo won the Education and Human Potential category prize ($50,000) in the global Build with Gemini XPRIZE competition, selected from over 26,000 registered builders worldwide."
+    },
+    {
       question: "What does 'Building 100% with AI' mean?",
       answer: "It means leveraging AI agents and LLMs for the entire software development lifecycle. From architecture and UI design to complex backend logic and deployment. I do not write code by hand. I describe what I want, and I work with AI until it exists."
     },

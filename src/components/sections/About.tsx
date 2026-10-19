@@ -115,6 +115,9 @@ export function About() {
                                     <p className="pb-4">
                                         I have been on both sides of this problem longer than almost anyone. I know what it feels like when the prompt is wrong because I have felt it hundreds of times across dozens of projects over three years. Kosmo is not a theory. It is the solution to a problem I lived.
                                     </p>
+                                    <p className="pb-4">
+                                        In September 2026, Kosmo won the Education and Human Potential category prize ($50,000) in the global Build with Gemini XPRIZE competition, selected from over 26,000 registered builders worldwide.
+                                    </p>
                                     
                                     <a
                                         href="https://askkosmo.com"

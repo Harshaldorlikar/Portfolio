@@ -18,8 +18,8 @@ const projects = [
         title: "Kosmo",
         subtitle: "AI Prompt Compiler",
         timeline: "June 2026 to Present",
-        summary: "A compiler that turns plain English ideas into structured, tool-aware AI prompts grounded in live documentation.",
-        tags: ["AI", "Compilers", "Product Design", "Prompt Engineering"],
+        summary: "A compiler that turns plain English ideas into structured, tool-aware AI prompts grounded in live documentation. Winner of the Education and Human Potential category prize ($50,000) in the Build with Gemini XPRIZE.",
+        tags: ["AI", "Compilers", "Product Design", "Prompt Engineering", "XPRIZE Category Prize"],
         link: "https://askkosmo.com",
         images: [] as ImageItem[],
         details: {
@@ -31,7 +31,7 @@ const projects = [
                 "Engineered the Socratic Loop and Anti-Cliché constraints.",
                 "Built the end-to-end user experience and web platform."
             ],
-            outcome: "Kosmo is currently in its waitlist phase, offering free compiles to early users to completely eliminate prompt babysitting."
+            outcome: "Won the Education and Human Potential category prize ($50,000) in the global Build with Gemini XPRIZE in September 2026, selected from over 26,000 registered builders worldwide. Kosmo is currently offering compiles to early users to eliminate prompt babysitting."
         }
     },
     {

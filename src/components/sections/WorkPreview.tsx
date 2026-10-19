@@ -5,7 +5,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 const previewProjects = [
-    { id: "kosmo", title: "Kosmo", subtitle: "AI Prompt Compiler" },
+    { id: "kosmo", title: "Kosmo", subtitle: "AI Prompt Compiler · XPRIZE Category Prize Winner" },
     { id: "a41", title: "A-41 Housing", subtitle: "Premium Tenant Acquisition Platform" },
     { id: "edai", title: "EdAI", subtitle: "Micro Interactive Learning Platform" },
     { id: "goat", title: "GOAT", subtitle: "Autonomous Sports Betting AI" }
